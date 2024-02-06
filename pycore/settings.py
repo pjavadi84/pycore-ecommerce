@@ -15,6 +15,8 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+print(f"BASE_DIR is set to: {BASE_DIR}")
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -54,9 +56,8 @@ ROOT_URLCONF = 'pycore.urls'
 
 TEMPLATES = [
     {
-        # 'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'static/frontend'],
+        'DIRS': [BASE_DIR / 'pycore/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,6 +69,9 @@ TEMPLATES = [
         },
     },
 ]
+
+template_dirs = TEMPLATES[0]['DIRS']
+print(f"Template DIRS are set to: {template_dirs}")
 
 WSGI_APPLICATION = 'pycore.wsgi.application'
 
@@ -125,6 +129,6 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = []
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [BASE_DIR / 'static',]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
