@@ -56,3 +56,16 @@ class CartItem(models.Model):
 
     def __str__(self):
         return f"{self.quantity} x {self.product.name}"
+    
+
+# 5) Order
+class Order(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    total = models.DecimalField(max_digits=10, decimal_places=2)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    paid = models.BooleanField(default=False)
+    shipped = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Order {self.id}"
