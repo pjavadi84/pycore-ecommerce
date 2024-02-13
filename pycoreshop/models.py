@@ -80,7 +80,7 @@ class OrderItem(models.Model):
     def __str__(self):
         return f"{self.quantity} x {self.product.name}"
     
-# Shipping Address
+# 7) Shipping Address
 class ShippingAddress(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     order = models.OneToOneField(Order, on_delete=models.CASCADE)
