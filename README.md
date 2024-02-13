@@ -1,0 +1,1 @@
+This is a simple ecommerce app using Python and Django to build the backend capabilities. Its sole purpose is to get familiar with Python and Django and as I progress the goal is to integrate UI with React and using the common techniques deploying into production and utilizing AWS for cloud services. 
