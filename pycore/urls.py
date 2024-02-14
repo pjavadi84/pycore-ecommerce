@@ -17,9 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
+from pycoreshop import views
+
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='frontend/index.html'), name='index'),
+    path('products/', views.product_list, name='product_list'),
+    path('products/<slug:category_slug>/', views.product_list, name='product_list_by_category')
 ]
